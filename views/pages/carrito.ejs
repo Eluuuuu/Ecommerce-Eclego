@@ -1,0 +1,129 @@
+<div id="carousel" class="carousel slide">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+
+            <%
+
+let total=0
+let items=0
+ if (!productos || productos.length === 0) { %>
+            <p>No hay productos seleccionados en el carrito!.</p>
+            <% } else { %>
+            <p id="mensaje_sin_productos" style="display: none;">No hay productos seleccionados en el carrito!</p>
+            <%
+productos.forEach(item=>{
+        total+=parseFloat(item.cantidad)*parseFloat(item.precio)
+        items+=parseInt(item.cantidad)
+    %>
+
+
+
+            <div class="Cart-Items item" data-id="<%=item.id%>">
+                <div class="image-box">
+                    <img class="imgSide" src="<%=item.urlImagen%>" />
+                </div>
+                <div class="about">
+                    <h1 class="title"><%=item.descripcion%></h1>
+                    <h3 class="subtitle"></h3>
+
+                </div>
+                <div class="counter">
+                    <div onclick="incrementar(this.closest('.item'))" class="btnContador">+</div>
+                    <div data-contador="<%=item.cantidad%>" data-precio="<%=item.precio%>" class="count contador">
+                        <%=item.cantidad%></div>
+                    <div onclick="decrementar(this.closest('.item'))" class="btnContador">-</div>
+                </div>
+                <div class="prices">
+                    <div class="amount"><%=item.precio%></div>
+
+                    <div onclick="removeItem(this.closest('.item'))" class="remove"><u>Remove</u></div>
+                </div>
+            </div>
+
+            <%})%>
+            <% } %>
+
+            <hr>
+            <div class="checkout">
+                <div class="total">
+                    <div>
+                        <div class="Subtotal">Sub-Total</div>
+                        <div data-items="<%=items%>" id="total-items" class="items"><%=items%></div>
+                    </div>
+                    <div data-total="<%=total%>" id="totalCarrito" class="total-amount"><%=total%></div>
+                </div>
+                <button  class="button" type="button" data-bs-target="#carousel" data-bs-slide="next">Checkout</button>
+            </div>
+
+        </div>
+
+        <div class="carousel-item">
+            <div class="container w-100">
+                <h5>Datos de Contacto</h5>
+                <form action="/login" id="form_datos_contacto">
+                    <div class="form-group px-0">
+                        <input type="email" name="email" id="email"class="form-control obligatorio" placeholder="Email" data_error="Completar campo email" >
+                    </div>
+                    <div class="form-group px-0">
+                        <input type="tel" name="tel" id="telefono" class="form-control obligatorio" placeholder="Telefono" data_error="Completar campo telefono" >
+                    </div>
+                    <div class="form-group px-0">
+                        <input type="text" name="name" id="name" class="form-control obligatorio" placeholder="Nombre Completo" data_error="Completar campo nombre completo" >
+                    </div>
+                    <div class="form-group px-0">
+                        <input type="number" name="dni" id="dni" class="form-control obligatorio" placeholder="Dni" data_error="Completo campo dni" >
+                    </div>
+                    <div class="form-group px-0">
+                        <input type="text" name="direccion" id="direccion" class="form-control obligatorio" placeholder="Direccion" data_error="Completar campo direccion" >
+                    </div>
+                    <div class="form-group px-0">
+                        <input type="text" name="departamento" id="departamento" class="form-control" placeholder="Departamento">
+                    </div>
+                </form>
+            </div>
+          
+            <button  class="button" type="button" data-bs-target="#carousel" data-bs-slide="prev">Go back</button>
+             
+            <button  class="button" type="button" data-bs-target="#carousel"  onclick="continuar_metodo_pago(this)">Continue</button>
+        </div>
+
+
+
+        <div class="carousel-item">
+            <div class="container w-100">
+                <h5>Formulario de Pago</h5>
+                <form action="/login" id="form_pago">
+                    <div class="form-check">
+                        <input class="form-check-input opcionElegida" type="radio" value="efectivo" id="efectivo" name="metodo_pago" onclick="checkMethod(this)" checked>
+                        <label class="form-check-label" for="efectivo">
+                            Efectivo
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" value="tarjeta" id="tarjeta" name="metodo_pago"  onclick="checkMethod(this)">
+                        <label class="form-check-label" for="tarjeta">
+                        Tarjeta
+                        </label>
+                      </div>
+                      <div id="datosTarjeta" class="d-none">
+                     <div class="form-group px-0">
+                        <input type="number" name="numeroCard" id="numeroCard"class="form-control obligatorio" placeholder="Numeros de la tarjeta" data_error="Completar el campo numero de tarjeta">
+                    </div>
+                    <div class="form-group px-0">
+                        <input type="text" name="name" id="name"class="form-control obligatorio" placeholder="Nombre completo" data_error="Completar el campo nombre tarjeta">
+                    </div>
+                    <div class="form-group px-0">
+                        <input type="number" name="codigo" id="codigo"class="form-control obligatorio" placeholder="Codigo de seguridad" data_error="Completar el codigo de seguridad">
+                    </div>
+                </div>
+                    <button id="btn" type="button" class="btn btn-secondary btn-block" onclick="formularioPago();">Checkout</button>
+                </form>
+               
+            </div>
+          
+            <button  class="button" type="button" data-bs-target="#carousel" data-bs-slide="prev">Go back</button>
+        </div>
+    </div>
+</div>
+<%-include('../partials/shop/script')-%>
+<script src="../js/carrito.js"></script>

@@ -1,0 +1,13 @@
+<div class="productos" id="categoria">
+  <%data.forEach(item=>{%>
+    <div class="card-productos" style="width: 12rem;">
+      <img  src="<%=item.url_imagen%>" class="card-img-top imagenes" alt="...">
+        <div class="card-body">
+          <p class="card-text bold"><%=item.nombre%></p>
+          <a href="/shop/<%=item.id%>" class="btn btn-secondary ">Shop</a>
+        </div>
+      </div>
+      <%})%>
+    </div>
+    
+<script src="./js/categories.js"></script>

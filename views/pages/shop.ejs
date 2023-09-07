@@ -1,0 +1,25 @@
+<%-include('../partials/head')-%>
+<%-include('../partials/navbar')-%>
+
+<%-include('../components/carrito')-%>
+
+<div class="productos">
+<%data.forEach(product=>{%>
+<div class="card pointer" style="width: 16rem;" onclick="location.href='detalle-producto/<%=product.id%>'">
+    <img  src="<%=product.url_imagen%>" class="card-img-top imagenes" alt="...">
+    <div class="card-body">
+      <h5 class="card-title"><%=product.descripcion%></h5>
+      <p class="card-text">$<%=product.precio%></p>
+      <!-- <button  data-id="<%=product.id%>" data-urlImagen="<%=product.url_imagen%>" data-descripcion="<%=product.descripcion%>" data-precio="<%=product.precio%>" data-cantidad="1" onclick="agregarAlCarrito(this)"  class="btn btn-secondary">Add to cart</button>  -->
+    </div>
+  </div>
+  <%})%>
+</div>
+
+
+<script src="../js/index.js"></script>
+
+
+<%-include('../partials/shop/script')-%>
+
+<%-include('../partials/footer')-%>

@@ -1,0 +1,65 @@
+<%-include('../partials/head')-%>
+<%-include('../partials/navbar')-%>
+<%-include('../components/carrito')-%>
+
+<div style="margin-left: 20px; margin-right: 20px;">
+
+    <div class="d-flex justify-content-between col-12">
+
+        <div class="col-6">
+            <div class="col-12">
+                <img src="<%=data.url_imagen%>" alt="" style="width: 100%; height: 500px;">
+            </div>
+
+            <p>DESCRIPCIÓN <br>
+                <%=data.detalle%>
+                </p>
+        </div>
+
+        <div class="col-6" style="padding-left: 50px;">
+            <h2><%=data.descripcion%></h2>
+            <h6>Cantidad vendidos: 4</h6>
+            <h6>Precio:$ <%=data.precio%>
+            </h6>
+         
+            <div class="row g-3 align-items-center">
+                <div class="col-2">
+                    <label for="inputPassword6" class="col-form-label">Talles</label>
+                </div>
+                <div class="col-auto">
+                    <select name="" id="producto_talle"  class="form-control">
+                        <%data.talles.forEach(talle=>{%>
+                        <option value="<%=talle.id%>"><%=talle.descripcion%></option>
+                        <%})%>
+
+                    </select>
+                </div>
+            </div>
+            <div class="row g-3 align-items-center">
+                <div class="col-2">
+                    <label for="inputPassword6" class="col-form-label">Color</label>
+                </div>
+                <div class="col-auto">
+                    <select name="" id="" class="form-control">
+                        <option value="">Negro</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row g-3 align-items-center">
+                <div class="col-2">
+                    <label for="inputPassword6" class="col-form-label">Cantidad</label>
+                </div>
+                <div class="col-auto">
+                    <input id="producto_cantidad" value="1" type="number" class="form-control" max="5">
+                </div>
+            </div>
+            <button data-urlImagen="<%=data.url_imagen%>" data-descripcion="<%=data.descripcion%>" data-precio="<%=data.precio%>" onclick="agregarAlCarrito(this)"  class="btn btn-secondary">Add to cart</button> 
+        </div>
+    </div>
+</div>
+
+
+<script src="../../js/detalle_producto.js"></script>
+<script src="../../js/carrito.js"></script>
+
+<%-include('../partials/footer')-%>

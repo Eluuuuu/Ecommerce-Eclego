@@ -1,0 +1,28 @@
+<%-include('../partials/head')-%>
+
+<h1 class="text-center mt-5 mb-3">Login</h1>
+<div class="container w-25">
+    <form action="/login" method="post" id="form">
+        <div class="form-group px-0">
+            <input type="email" name="email" id="email" class="form-control" placeholder="Email">
+        </div>
+        <div class="form-group px-0">
+            <input type="password" name="password" id="password" class="form-control" placeholder="Password">
+        </div>
+        <div class="formulario">
+            <a class="mt-0 mb-3 text-secondary" href="/olvide">Forgot your password?</a>
+
+            <button id="btn" type="button" class="btn btn-secondary btn-block" onclick="logIn()">Log in</button>
+
+            <span id="mensajeError"></span>
+
+            <button id="btn-2" type="button" class="btn btn-grey btn-block">Sign in</button>
+        </div>
+    </form>
+</div>
+
+
+
+<script src="./js/login.js"></script>
+
+<%-include('../partials/footer')-%>

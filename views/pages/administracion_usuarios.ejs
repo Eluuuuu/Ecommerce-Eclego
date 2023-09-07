@@ -1,0 +1,42 @@
+<%-include('../partials/head')-%>
+<div class="container d-flex justify-content-between ">
+  <div class="container col-7 scroll">
+    <table class="table table-striped container w-28 ">
+      <thead>
+        <tr>
+          <th scope="col">Email</th>
+          <th scope="col">Name</th>
+          <th scope="col">LastName</th>
+          <th scope="col">Permisos</th>
+        </tr>
+      </thead>
+      <tbody>
+        <%data.forEach(el=>{%>
+        <tr data-id="<%=el.id%>" onclick="row_selected(this)">
+          <td><%=el.email%></td>
+          <td><%=el.name%></td>
+          <td><%=el.lastName%></td>
+          <td>permisos</td>
+        </tr>
+        <%})%>
+      </tbody>
+    </table>
+  </div>
+        <div class="container col-5">
+            <div id="planilla_usuarios">
+              <%-include('formulario_usuarios',{data:[]})%>
+            </div>
+      <div class="botones_form d-flex justify-content-between">
+        <button type="button" class="btn btn-secondary btn-block col-3" onclick="alta_user()">Alta</button>
+
+        <button type="button" class="btn btn-secondary btn-block col-3" onclick="delete_user()">Eliminar</button>
+
+        <button type="button" class="btn btn-secondary btn-block col-3" onclick="modify_user()">Modificar</button>
+      </div>
+    </div>
+  
+</div>
+
+  <script src="./js/administracion_usuarios.js"></script>
+
+  <%-include('../partials/footer')-%>

@@ -1,0 +1,45 @@
+<%-include('../partials/head')-%>
+<div class="container d-flex justify-content-between ">
+  <div class="container col-7 scroll">
+    <table class="table table-striped container w-28 ">
+      <thead>
+        <tr>
+          <th scope="col">Descripcion producto</th>
+          <th scope="col">Precio</th>
+          <th scope="col">Sexo</th>
+          <th scope="col">talle</th>
+          <th scope="col">Stock</th>
+
+        </tr>
+      </thead>
+      <tbody>
+        <%data.forEach(el=>{%>
+        <tr data-id="<%=el.id%>" onclick="row_selected(this)">
+          <td><%=el.descripcion%></td>
+          <td><%=el.precio%></td>
+          <td><%=el.sexo%></td>
+          <td><%=el.talle%></td>
+          <td><%=el.cantidad%></td>
+        </tr>
+        <%})%>
+      </tbody>
+    </table>
+  </div>
+    <div class="container col-5">
+      <div id="contenidoFormulario">
+        <%-include('formulario',{data:[]})-%>
+      </div>
+      <div class="botones_form d-flex justify-content-between">
+        <button type="button" class="btn btn-secondary btn-block col-3" onclick="alta_product()">Aceptar</button>
+
+        <button type="button" class="btn btn-secondary btn-block col-3" onclick="delete_product()">Eliminar</button>
+
+        <button type="button" class="btn btn-secondary btn-block col-3" onclick="modifyUser()">Modificar</button>
+      </div>
+    </div>
+  
+</div>
+
+  <script src="./js/control_stock.js"></script>
+
+  <%-include('../partials/footer')-%>

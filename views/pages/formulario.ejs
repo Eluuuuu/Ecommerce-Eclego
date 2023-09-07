@@ -1,0 +1,43 @@
+
+<form id="products">
+    
+    <div class="form-group px-0 d-flex justify-content-between align-items-center">
+        <label for="Descripcion" class="col-3">Descripcion</label>
+        <input type="text" name="Descripcion" value="<%=data[0] ? data[0].descripcion : ''  %>" id="producto_descripcion" class="form-control" placeholder="Descripcion producto">
+
+    </div>
+    <div class="form-group px-0 d-flex justify-content-center align-items-center">
+        <label for="precio" class="col-3">Precio</label>
+        <input type="number" name="precio" value="<%=data[0] ? data[0].precio : ''%>" id="producto_precio" class="form-control" placeholder="precio">
+    </div>
+    <div class="form-group px-0 d-flex justify-content-center align-items-center">
+        <label for="sexo" class="col-3">Sexo</label>
+        <select name="select"  class="form-control"  id="sexo" data-valor="<%=data[0] ? data[0].sexo : '' %>">
+            <option value="M">Masculino</option>
+            <option value="F">Femenino</option>
+        </select>
+    </div>
+
+    <div class="form-group px-0 d-flex justify-content-center align-items-center">
+        <label for="talle" class="col-3">Talle</label>
+        <select name="select"  class="form-control"  id="talle" data-valor="<%=data[0] ? data[0].talle : '' %>">
+            <option value="2">S</option>
+            <option value="1">XS</option>
+            <option value="3">M</option>
+            <option value="4">L</option>
+            <option value="5">XL</option>
+            <option value="6">35</option>
+            <option value="7">36</option>
+            <option value="8">37</option>
+            <option value="9">38</option>
+            <option value="10">39</option>
+            <option value="11">40</option>
+        </select>
+    </div>
+
+    <div class="form-group px-0 d-flex justify-content-center align-items-center">
+        <label for="cantidad" class="col-3">Cantidad</label>
+        <input type="number" name="stock" value="<%=data[0] ? data[0].cantidad : '' %>" id="stock" class="form-control" placeholder="Stock">
+    </div>
+    
+</form>
