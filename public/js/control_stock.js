@@ -98,6 +98,28 @@ const alta_product = async ()=>{
     }
 
 
+    document.getElementById("imagen_producto").addEventListener('change', function() {
+      const file = this.files[0];
+      if (file) {
+          const reader = new FileReader();
+          reader.onload = function(e) {
+              document.getElementById("imagePreview").src = e.target.result;
+          };
+          reader.readAsDataURL(file);
+      } else {
+          // Manejo si no se selecciona ningún archivo o se cancela la selección.
+          document.getElementById("imagePreview").src = '';
+      }
+  });
+
+
+  const control_stock=()=>{
+
+    window.location.href = "/productos_stock"
+
+
+
+  }
 
 
 

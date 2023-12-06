@@ -412,9 +412,37 @@ hr{
 
 	.scroll{
 	overflow-y: scroll;
-    height: 90vh;
+    height: 70vh;
 	}
 
 	.pointer{
 		cursor: pointer
+	}
+
+	
+
+
+	.ocultarMenu{
+		width: 25%;
+		margin: 0;
+		padding: 0;
+		height: 100vh;
+		left: 0;
+		position: fixed;
+		z-index: 1;
+	}
+	
+
+	.listas{
+		list-style: none;
+	}
+
+	.background{
+		background-color: #E0DCDC;
+		height: 100vh;
+	}
+
+	.users{
+		display: inline-grid;
+
 	}

@@ -1,0 +1,19 @@
+<%-include('../partials/head')-%>
+  <div class="background">
+  <div class="container ">
+
+
+    <h1>Información de Usuarios</h1>
+<div class="users">
+    <label for="userSelect">Selecciona un usuario</label>
+    <select id="userSelect">
+        <%data.forEach(el=>{%>
+        <option value="<%=el.id%>"><%=el.name%></option>
+        <%})%>
+    </select>
+</div>
+         
+</div>
+</div>
+
+<script src="./js/administracion_usuarios.js"></script>

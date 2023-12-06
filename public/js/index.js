@@ -38,9 +38,13 @@ window.addEventListener('load', function () {
   globitoActualizado()
   
   categories()
+  
 
   
 });
+
+
+
 
 
 const globitoActualizado=()=>{
@@ -51,7 +55,7 @@ const globitoActualizado=()=>{
     return acumulador + producto.cantidad;
   }, 0);
 
-  console.log(totalCantidades)
+ 
 
   document.getElementById('cantidadCarrito').innerHTML=totalCantidades
 
@@ -258,11 +262,11 @@ const removeAll = () => {
 
 
 
-if (localStorage.getItem("id_user")) {
-  console.log('usuario logeado')
+// if (localStorage.getItem("id_user")) {
+//   console.log('usuario logeado')
 
-} else {
-  location.href = 'login'
-}
+// } else {
+//   location.href = 'login'
+// }
 
 

@@ -179,3 +179,21 @@ const continuar_metodo_pago = (element) => {
 
 
 }
+
+
+const abrir_menu=()=>{
+
+
+  const elementoOculto = document.getElementById("menu");
+  
+
+  elementoOculto.classList.toggle("d-none");
+  console.log(elementoOculto)
+    
+  
+
+}
+
+
+
+

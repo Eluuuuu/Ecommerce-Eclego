@@ -40,4 +40,13 @@
         <input type="number" name="stock" value="<%=data[0] ? data[0].cantidad : '' %>" id="stock" class="form-control" placeholder="Stock">
     </div>
     
+    <div class="form-group px-0 d-flex justify-content-center align-items-center">
+        <label for="img" class="col-3">Imagen</label>
+        <input type="file" name="img" accept="image/*"  value="" id="imagen_producto" class="form-control" placeholder="img">
+    </div>
+    <div class="form-group px-0 d-flex justify-content-center align-items-center">
+        <img src="" alt="" id="imagePreview" style="width: 100px; height: 100px;">
+    </div>
+   
+    
 </form>

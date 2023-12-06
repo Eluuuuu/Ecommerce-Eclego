@@ -35,6 +35,9 @@ router.get('/index', (req, res) => {
 })
 
 
+
+
+
 router.get('/shop/:id', async (req, res) => {
     try {
         const data= await productController.getProducts(req)//me agarra los productos de tal categoria
@@ -96,6 +99,18 @@ router.get('/all_users', async (req, res) => {
 router.get('/formulario_usuarios', async (req, res) => {
     try {
         res.render('pages/formulario_usuarios')
+    } catch (error) {
+        console.log(error)
+    }
+
+})
+
+
+
+router.get('/abm_permisos_usuarios', async (req, res) => {
+    const data= await administracion_usuarios.all_users()
+    try {
+        res.render('pages/abm_permisos_usuarios', {data: data.results})
     } catch (error) {
         console.log(error)
     }

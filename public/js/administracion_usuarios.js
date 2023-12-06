@@ -1,21 +1,21 @@
-const all_users = async () => {
+// const all_users = async () => {
 
-    try {
-        const url = `http://localhost:3060/all_users`;
-        // Lo tomo por parametro para saber si esos datos coinciden con los datos de la base
+//     try {
+//         const url = `http://localhost:3060/all_users`;
+//         // Lo tomo por parametro para saber si esos datos coinciden con los datos de la base
 
-        const response = await fetch(url);
-        const data = await response.json();
-        console.log(data);
-        const info = data.results
-        console.log(data.results);
-        return info
+//         const response = await fetch(url);
+//         const data = await response.json();
+//         console.log(data);
+//         const info = data.results
+//         console.log(data.results);
+//         return info
 
 
-    } catch (error) {
-        console.log(error)
-    }
-}
+//     } catch (error) {
+//         console.log(error)
+//     }
+// }
 
 
 const row_selected = async (fila) => {
@@ -178,6 +178,15 @@ const modify_user = async ()=>{
 
       
     }
+
+   
+        
+        
+
+
+
+
+    
 
 
 
